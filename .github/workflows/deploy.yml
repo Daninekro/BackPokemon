@@ -24,10 +24,6 @@ jobs:
           port: 7122
           script: |
             cd BackPokemon
-            git pull origin main
-
-            # Transferir archivo JAR al servidor
-            scp -i ${{ secrets.SSH_PRIVATE_KEY }} -P 7122 BackPokemon/target/pokmonAPI-0.0.1.jar ${USER}@herokku.duckdns.org:/ruta/destino/en/el/servidor/target/pokmonAPI-0.0.1.jar
-
+            git pull origin master
             docker compose down
             docker compose up -d --build
