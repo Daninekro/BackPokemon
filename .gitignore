@@ -3,6 +3,9 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+# No ignorar los archivos .jar en la carpeta target
+!/target/*.jar
+
 
 ### STS ###
 .apt_generated
