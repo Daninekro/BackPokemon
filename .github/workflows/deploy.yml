@@ -25,6 +25,12 @@ jobs:
           script: |
             cd BackPokemon
             git pull origin main
+            # Instalar Maven si no está disponible
+            if ! [ -x "$(command -v mvn)" ]; then
+              echo "Maven no encontrado. Instalando Maven..."
+              sudo apt update
+              sudo apt install -y maven
+            fi
             # Compilar el proyecto con Maven
             mvn clean package -DskipTests
             # Verificar que el archivo JAR se haya generado
