@@ -1,0 +1,9 @@
+services:
+  springboot-app:
+    build: .
+    ports:
+      - "8081:8090"
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
