@@ -25,19 +25,5 @@ jobs:
           script: |
             cd BackPokemon
             git pull origin main
-            # Instalar Maven si no está disponible
-            if ! [ -x "$(command -v mvn)" ]; then
-              echo "Maven no encontrado. Instalando Maven..."
-              sudo apt update
-              sudo apt install -y maven
-            fi
-            # Compilar el proyecto con Maven
-            mvn clean package -DskipTests
-            # Verificar que el archivo JAR se haya generado
-            if [ ! -f target/pokmonAPI-0.0.1.jar ]; then
-              echo "Error: No se encontró el archivo JAR en target/"
-              exit 1
-            fi
-            # Reiniciar los servicios de Docker
             docker compose down
             docker compose up -d --build
