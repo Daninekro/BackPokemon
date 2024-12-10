@@ -24,6 +24,6 @@ jobs:
           port: 7122
           script: |
             cd BackPokemon
-            git pull origin master
+            git pull origin main
             docker compose down
             docker compose up -d --build
