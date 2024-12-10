@@ -25,6 +25,5 @@ jobs:
           script: |
             cd BackPokemon
             git pull origin main
-            mvn clean package -DskipTests
             docker compose down
             docker compose up -d --build
