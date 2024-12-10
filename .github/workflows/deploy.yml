@@ -1,3 +1,5 @@
+name: Despliegue en Invernalia
+
 on:
   push:
     branches:
@@ -23,5 +25,13 @@ jobs:
           script: |
             cd BackPokemon
             git pull origin main
+            # Compilar el proyecto con Maven
+            mvn clean package -DskipTests
+            # Verificar que el archivo JAR se haya generado
+            if [ ! -f target/pokmonAPI-0.0.1.jar ]; then
+              echo "Error: No se encontró el archivo JAR en target/"
+              exit 1
+            fi
+            # Reiniciar los servicios de Docker
             docker compose down
             docker compose up -d --build
