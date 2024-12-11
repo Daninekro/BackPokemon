@@ -3,7 +3,7 @@ services:
     build:
      context: .
     ports:
-      - "8081:8090"
+      - "8089:8090"
     volumes:
       - ./logs:/app/logs
     environment:
